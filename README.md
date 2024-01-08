@@ -21,5 +21,8 @@ Run 'dotnet watch run' or 'dotnet run' for API project in dev Server. Navigate t
 ### Build
 Run 'dotnet build' to build the project.
 
+## Login to the Employee Vacation Management application using the below credentials:
 
+UserName: admin@labcorp.com <br>
+Password:admin
 
