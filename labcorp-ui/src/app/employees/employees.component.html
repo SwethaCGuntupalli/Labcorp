@@ -1,0 +1,60 @@
+<div class="row" *ngIf="employees.length > 0">
+    <table class="table table-responsive table-sm">
+        <thead>
+            <tr style="font-size: small;">
+                <th></th>
+                <!-- <th>Id</th> -->
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Type</th>
+                <th>Worked Days</th>
+                <th>Vacation Accumulated</th>
+                <th>Vacation Availed</th>
+                <th>Balance Vacations</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <th scope="row"></th>
+                <!-- <th >{{employee?.employeeId }}</th> -->
+                <td>
+                    <fa-icon size="lg" title="Manager"
+                        [icon]="['fas', 'user-tie']"
+                        *ngIf="this.employee.type === 'Manager'"></fa-icon>
+                    <fa-icon size="lg" title="Hourly"
+                        [icon]="['fas', 'user-clock']"
+                        *ngIf="this.employee.type === 'HourlyEmployee'"></fa-icon>
+                    <fa-icon size="lg" title="Salaried"
+                        [icon]="['fas', 'user-shield']"
+                        *ngIf="this.employee.type === 'SalariedEmployee'"></fa-icon>
+                    &nbsp; {{employee.firstName}} </td>
+                <td> {{employee.lastName}} </td>
+                <td> {{ employeeType(employee.type)}} </td>
+                <td> {{employee.workDays}} </td>
+                <td>{{employee.vacationDaysAccumulated}} </td>
+                <td>{{employee.vacationDaysAvailed}} </td>
+                <td> {{ balanceVacations(employee)}} </td>
+                <td>
+                    <button class="btn btn-outline-warning btn-sm me-3 button"
+                        title="Add Vacation"
+                        (click)="addVacation(employee)"><fa-icon
+                            [icon]="['fas', 'truck-plane']"></fa-icon></button>
+                    <button class="btn btn-outline-info btn-sm me-3 button"
+                        title="Add Work"
+                        (click)="addWork(employee)"><fa-icon
+                            [icon]="['fas', 'briefcase-clock']"></fa-icon></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div *ngIf="employees.length === 0">
+    <div class="bs-component">
+        <div class="alert alert-dismissible alert-danger">
+            <strong>0 records! </strong> &nbsp;&nbsp; <a href="#"
+                (click)="false" class="alert-link">Change a few things
+                up</a> and try submitting again.
+        </div>
+    </div>
+</div>

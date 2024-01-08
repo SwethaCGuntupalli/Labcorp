@@ -1,0 +1,25 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+@baseUrl = http://localhost:5137/api
+
+### Get All the Employees
+GET {{baseUrl}}/employees
+
+
+### Get Employee By Id
+GET {{baseUrl}}/employees/1
+
+### Update Work
+POST {{baseUrl}}/employees/1/work
+Content-Type: application/json
+
+{
+    "daysWorked": 5
+}
+
+### Update Work
+POST {{baseUrl}}/employees/1/vacation
+Content-Type: application/json
+
+{
+    "daysTaken": 3.5
+}

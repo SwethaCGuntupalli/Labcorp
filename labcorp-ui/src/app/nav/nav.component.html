@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary"
+    aria-label="Eighth navbar example"
+    *ngIf="(employeeService.currentUser$ | async) as user">
+    <div class="container">
+        <a class="navbar-brand" href="#">LabCorp</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarsExample07" aria-controls="navbarsExample07"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample07">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="#"
+                        routerLinkActive="active">Home</a>
+                </li>                
+            </ul>
+            <div class="btn-group" dropdown>
+                <a (click)="false" class="dropdown-toggle login-link ms-3" href
+                    aria-controls="dropdown-animated"
+                    dropdownToggle>
+                    Welcome Admin <img class="user-img"
+                        src="{{'./assets/user.png'}}" alt="admin">
+                    <span class="caret"></span></a>
+                <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu"
+                    role="menu"
+                    aria-labelledby="button-animated">
+                    <li role="menuitem"><a class="dropdown-item" href="#"
+                            (click)="logout()">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,54 @@
+<header class="modal-header">
+    <h4 class="modal-title"> Add {{ type | titlecase }} Days</h4>
+    <button type="button" class="btn-close" aria-label="Close"
+        (click)="bsModalRef.hide()"></button>
+</header>
+<main class="modal-body">
+    <form autocomplete="off" [formGroup]='employeeForm'>
+        <div class="mb-3 row">
+            <label for="firstName"
+                class="col-sm-4 col-form-label">First Name</label>
+            <div class="col-sm-8">
+                <input type="text" id="firstName" formControlName="firstName"
+                    class="form-control" placeholder="First Name" required />
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="lastName"
+                class="col-sm-4 col-form-label">Last Name</label>
+            <div class="col-sm-8">
+                <input type="text" id="lastName" formControlName="lastName"
+                    class="form-control" placeholder="Last Name" required />
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="vacationDays"
+                class="col-sm-4 col-form-label">Vacation Days</label>
+            <label for="vacationDays"
+                class="col-sm-1 col-form-label"><b>{{ (employee.vacationDaysAccumulated - employee.vacationDaysAvailed )}}</b></label>
+            <div class="col-sm-7">
+                <input type="number"
+                    id="vacationDays"
+                    formControlName="vacationDays"
+                    class="form-control" placeholder="Vacation Days" required />
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="workDays"
+                class="col-sm-4 col-form-label">Work Days</label>
+            <label for="workDays"
+                class="col-sm-1 col-form-label"><b>{{this.employee.workDays}}</b></label>
+            <div class="col-sm-7">
+                <input type="number" id="workDays" formControlName="workDays"
+                    class="form-control" placeholder="Work Days" required />
+            </div>
+        </div>
+    </form>
+</main>
+<footer class="modal-footer">
+    <button type="button" class="btn btn-light btn-sm"
+        (click)="bsModalRef.hide()">Close</button>
+    <button type="submit" class="btn btn-warning btn-sm"
+        [disabled]='!employeeForm.valid' (click)="employeeModal()">Add {{type |
+        titlecase}}</button>
+</footer>
